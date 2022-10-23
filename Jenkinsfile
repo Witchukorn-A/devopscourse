@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Submit Stack') {
+        stage('Copy Git Repo) {
             steps {
-              sh "cat 01_s3cft.yml"
-              sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://01_s3cft.yml --region 'us-west-2'"
+              git 'https://github.com/Witchukorn-A/devopscourse.git'
+              }
+			 steps {
+              sh 'cat README.md'
               }
              }
             }
