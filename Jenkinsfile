@@ -1,15 +1,16 @@
 pipeline {
     agent any
+
     stages {
         stage('Copy Git Repo') {
-            steps {
+           steps {
               git 'https://github.com/Witchukorn-A/devopscourse.git'
               }
-			    stage('Copy Git Repo') {
-			 steps {
-              sh 'cat README.md'
-              }
-             }
-			 }
+        }
+        stage('Show Text') {
+            steps {
+                   sh 'cat README.md'
             }
-            }
+        }
+    }
+}
